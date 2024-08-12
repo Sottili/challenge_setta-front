@@ -26,36 +26,10 @@ ChartJS.register(
 
 import { Bar } from "react-chartjs-2";
 
-interface IDataChart {
-  id: number;
-  temperatura: number;
-  eficiencia: number;
-  data: number;
-}
+import useMetrics from "@/hooks/useMetrics";
 
 const ChartMetrics = () => {
-  const [dataChart, setDataChart] = useState<IDataChart[]>([]);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get(
-          `http://localhost:8000/metricas/get-metrics`
-        );
-        setDataChart(response.data);
-      } catch (e) {
-        console.log(e);
-      }
-    };
-
-    fetchData();
-
-    const interval = setInterval(fetchData, 30000);
-
-    return () => clearInterval(interval);
-  }, []);
-
-  console.log(dataChart);
+  const { dataChart } = useMetrics();
 
   return (
     <>

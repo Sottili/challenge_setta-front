@@ -5,54 +5,12 @@ import { FaTemperatureArrowUp } from "react-icons/fa6";
 import { FaTemperatureHalf } from "react-icons/fa6";
 import { FaTemperatureArrowDown } from "react-icons/fa6";
 import { CgPerformance } from "react-icons/cg";
+import useMetrics from "@/hooks/useMetrics";
 
-import { IWeatherData } from "@/interfaces/IWeather";
-
-interface Props {
-  data: IWeatherData;
-}
-
-export const Metrics = ({ data }: Props) => {
-  const [metricsData, setMetricsData] = useState<IWeatherData | null>(null);
-
-  const sendMetrics = useCallback(async () => {
-    if (metricsData && metricsData.main) {
-      const dataDB = {
-        temp: metricsData ? Math.round(metricsData.main.temp - 273) : 0,
-        perfor: metricsData
-          ? calcPerformance(Math.round(metricsData.main.temp - 273))
-          : 0,
-      };
-      axios
-        .post("http://localhost:8000/metricas/post-metrics", {
-          temp: dataDB.temp,
-          perfor: dataDB.perfor,
-        })
-        .then((response) => {
-          console.log(response);
-        })
-        .catch((e) => {
-          console.log(e);
-        });
-    }
-  }, [metricsData]);
-
-  useEffect(() => {
-    setMetricsData(data);
-    sendMetrics();
-  }, [data]);
-
+export const Metrics = () => {
   const today = new Date(Date.now()).toLocaleString().split(",")[0];
 
-  function calcPerformance(temp: number) {
-    if (temp >= 28) {
-      return 100;
-    } else if (temp <= 24) {
-      return 75;
-    } else {
-      return 75 + (temp - 24) * (25 / 4);
-    }
-  }
+  const { metrics, metricsData, calcPerformance } = useMetrics();
 
   return (
     <div>

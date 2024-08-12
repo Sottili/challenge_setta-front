@@ -8,33 +8,9 @@ import metricsPerson from "../assets/metricsPerson.png";
 import { Metrics } from "@/components/metrics";
 import wave from "../assets/wave.svg";
 import ChartMetrics from "@/components/chart";
+import useMetrics from "@/hooks/useMetrics";
 
 export default function Home() {
-  const [metrics, setMetrics] = useState<any>({});
-
-  useEffect(() => {
-    const interval = setInterval(async () => {
-      await axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=-23.619337&lon=-46.756927&appid=ad6ca15c166c1b274133bd35e4357e62`
-        )
-        .then(async (response: AxiosResponse) => {
-          setMetrics(response.data);
-        });
-    }, 30000);
-
-    if (Object.keys(metrics).length == 0) {
-      axios
-        .get(
-          `https://api.openweathermap.org/data/2.5/weather?lat=-23.619337&lon=-46.756927&appid=ad6ca15c166c1b274133bd35e4357e62`
-        )
-        .then((response: AxiosResponse) => {
-          setMetrics(response.data);
-        });
-    }
-    return () => clearInterval(interval);
-  }, [metrics]);
-
   return (
     <>
       <Navbar />
@@ -50,7 +26,7 @@ export default function Home() {
             src={metricsPerson}
           />
           <div className="flex flex-col">
-            <Metrics data={metrics} />
+            <Metrics />
             <ChartMetrics />
           </div>
         </div>
