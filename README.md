@@ -1,36 +1,65 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<h1 align="center" style="font-weight: bold;">Challenge Setta - Metrics FS 💻</h1>
 
-## Getting Started
+<p align="center">
+    <b>This project consists one application developed to challenge setta metrics.</b>
+</p>
 
-First, run the development server:
+<h2 id="technologies">💻 Technologies</h2>
+
+- ReactJS
+- Typescript
+- Tailwind
+- Axios
+- ChartJS
+
+<h2 id="started">🚀 Getting started</h2>
+
+How to run this project locally:
+
+<h3>Prerequisites</h3>
+
+Prerequisites to run project:
+
+- [NodeJS](https://nodejs.org/)
+- [Git](https://git-scm.com/)
+
+<h3>Cloning</h3>
+
+How to clone project
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+git clone https://github.com/Sottili/challenge_setta-front
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+<h3>Starting</h3>
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+After clone the project, use below command lines to execute.
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+cd project-name
+npm i (install dependencies)
+npm run dev (start this project locally)
+```
 
-## Learn More
+<h2 id="colab">🤝 Collaborators</h2>
 
-To learn more about Next.js, take a look at the following resources:
+Thanks to contribute this project!
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+<table>
+  <tr>
+    <td align="center">
+      <a href="#">
+        <img src="https://avatars.githubusercontent.com/u/91507688?v=4" width="100px;" alt="Filipe Sottili Profile Picture"/><br>
+        <sub>
+          <b>Filipe Sottili</b>
+        </sub>
+      </a>
+    </td>
+  </tr>
+</table>
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+<h2>Bonus</h2>
 
-## Deploy on Vercel
+To consult architeture back-end this application, access:
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+Github of repository: https://github.com/Sottili/challenge_setta-back
